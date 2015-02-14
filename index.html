@@ -1,0 +1,43 @@
+<html>
+    <head>
+	    <meta charset="utf-8" />
+	    <title>Oho</title>
+	    <style>
+	        * {
+	            padding: 0;
+	            margin: 0;
+	        }
+	        canvas {
+	            display: block;
+	            position: absolute;
+	            top: 0;
+	            left: 0;
+	            right: 0;
+	            bottom: 0;
+	            width: 100%;
+	            margin: 0 auto;
+	        }
+	        #lines {
+	            display: block;
+	            position: absolute;
+	            top: 0;
+	            width: 100%;
+	            height: 100%;
+	            background: black;
+	        }
+	        #gui { 
+	            float: left;
+	        }
+	    </style>
+    </head>
+    
+    <body onload="start()">
+        
+        <canvas id="lines"></canvas>
+        <script src='dat-gui.js'></script>
+        <script src='utils.js'></script>
+        <script src='lines.js'></script>
+        
+    </body>
+    
+</html>
