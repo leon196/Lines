@@ -100,8 +100,8 @@ define([
 
 			, updateBeat: function () {
 				var light = $('#beat');
-				var text = $('#text');
-				text.html("LOW :"+parseInt(this.beatdetector.heartBeatLow)+"\nMID :"+parseInt(this.beatdetector.heartBeatMid)+"\nHIGH :"+parseInt(this.beatdetector.heartBeatHigh));
+				// var text = $('#text');
+				// text.html("LOW :"+parseInt(this.beatdetector.heartBeatLow)+"\nMID :"+parseInt(this.beatdetector.heartBeatMid)+"\nHIGH :"+parseInt(this.beatdetector.heartBeatHigh));
 				if (this.beatdetector.heartBeatLow > 100) {
 					light.css({background:'red'});
 				}

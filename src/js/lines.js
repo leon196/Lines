@@ -42,7 +42,7 @@ define([
                 this.speed3 = 0.062;
                 this.waveHeight = canvas.height / 2;
                 this.lineWidth = 1;
-                this.lineCount = 5;
+                this.lineCount = 20;
                 this.lineSpace = 1;
                 this.segmentCount = 16;
                 this.gravity = 0;
@@ -87,22 +87,28 @@ define([
                 ;
 
                 //GREG CUSTOM
-                var newFreq = this.beatDetector.heartBeatGlobal/100;
-                this.frequence1 = newFreq;
                 // this.frequence2 = newFreq;
                 // this.frequence3 = newFreq;
                 // this.scale1 = newFreq;
                 // this.scale2 = newFreq;
-                this.scale3 = newFreq;
+                // this.scale3 = newFreq;
                 // this.speed1 = newFreq;
                 // this.speed2 = newFreq;
                 // this.speed3 = newFreq;
 
-                // if(this.beatDetector.heartBeatLow > 100)
-                //     this.lineCount = 1;
-                // else
-                //     this.lineCount = 5;
-                ///////////////////
+                if(this.beatDetector.heartBeatLow > 0) {
+                    var newFreq1 = this.beatDetector.heartBeatLow/50;
+                    this.frequence1 = newFreq1;
+                }
+                if(this.beatDetector.heartBeatMid > 0) {
+                    var newFreq2 = this.beatDetector.heartBeatMid/50;
+                    this.frequence3 = newFreq2;
+                }
+                if(this.beatDetector.heartBeatHigh > 0) {
+                    var newFreq3 = this.beatDetector.heartBeatHigh/50;
+                    this.frequence2 = newFreq3;
+                }
+                /////////////////
 
                 ++tick;
                 context.clearRect(0, 0, canvas.width, canvas.height);
