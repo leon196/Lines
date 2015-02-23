@@ -5,6 +5,7 @@
 require.config({
 	paths : {
 		'jquery': '../bower_components/jquery/dist/jquery'
+		, 'pixi': '../bower_components/pixi.js/bin/pixi'
 		, 'gui': '../bower_components/dat-gui/build/dat.gui'
 		}
 		, shim : {
@@ -16,26 +17,36 @@ require.config({
 });
 
 define([
-	'gui'
+	'jquery'
+	, 'gui'
 	, 'lines'
+	, 'circles'
 	, 'sound/audiohandler'
-	, 'sound/beatdetector'
+	, 'sound/visualizer'
 
-], function (GUI, LineHandler, AudioHandler, BeatDetector) {
+], function ($, GUI, LineHandler, CircleHandler, AudioHandler, Visualizer) {
 
 	function initialize(callback) {
+		
+		var audioHandler = AudioHandler;
+		
+		audioHandler.mode = 'mp3';
 
-		var audioHandler = AudioHandler.initialize('audio/wondering2.mp3', function () {
-			this.play();
+		audioHandler.initialize(function () {
+			var self = this;
+			console.log('audiohandler ok');
+			self.prepareDataSource();
+			if (callback && typeof(callback) === "function") {
+				callback();
+			}
 		});
 
-		if (callback && typeof(callback) === "function") {
-			callback();
-		}
 	}
 
 	initialize(function () {
-		LineHandler.initialize();
+		// LineHandler.initialize();
+		CircleHandler.initialize();
+		Visualizer.initialize();
 	});
 
 });

@@ -1,3 +1,6 @@
+var canvas, context, frame, aspectRatio, tick, perlin, gui;
+
+
 // http://www.html5canvastutorials.com/advanced/html5-canvas-animation-stage/
 window.requestAnimFrame = (function(callback) { 
     return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function(callback) { window.setTimeout(callback, 1000 / 60);};})();
